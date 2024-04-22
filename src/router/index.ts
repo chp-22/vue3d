@@ -1,19 +1,45 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/demo1',
+    name: 'demo1',
+    component: () => import(/* webpackChunkName: "about" */ '../views/TestDemo1.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/demo2',
+    name: 'demo2',
+    component: () => import('../views/TestDemo2.vue')
+  },
+  {
+    path: '/demo3',
+    name: 'demo3',
+    component: () => import('../views/TestDemo3.vue')
+  },
+  {
+    path: '/demo4',
+    name: 'demo4',
+    component: () => import('../views/TestDemo4.vue')
+  },
+  {
+    path: '/demo5',
+    name: 'demo5',
+    component: () => import('../views/TestDemo5.vue')
+  },
+  {
+    path: '/card',
+    name: 'card',
+    component: () => import('../views/CardView.vue')
+  },
+  {
+    path: '/agv',
+    name: 'agv',
+    component: () => import('../views/AgvView.vue')
+  },
+  {
+    path: '/agv2',
+    name: 'agv2',
+    component: () => import('../views/AgvView2.vue')
   }
 ]
 

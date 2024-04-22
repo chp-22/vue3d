@@ -1,60 +1,54 @@
 <template>
-  <div id="app">
-    <h3>three.js</h3>
-    <div ref="threeBox" id="d-box"></div>
-    <!-- <chp-button text="ppppppp测试"></chp-button> -->
+  <div class="app">
+    <nav>
+      <router-link to="/demo1" class="nav-item">THREE基础学习</router-link>
+      <router-link to="/demo2" class="nav-item">THREE自定义缓冲几何体</router-link>
+      <router-link to="/demo3" class="nav-item">THREE场景与物体</router-link>
+      <router-link to="/demo4" class="nav-item">THREE纹理</router-link>
+      <router-link to="/demo5" class="nav-item">THREE绘制透明物体</router-link>
+      <router-link to="/agv" class="nav-item">agv智能小车移动</router-link>
+      <router-link to="/agv2" class="nav-item">agv智能小车移动2</router-link>
+      <router-link to="/card" class="nav-item">圣诞节贺卡</router-link>
+    </nav>
+    <router-view/>
   </div>
 </template>
 
-<script setup>
-import * as THREE from 'three';
-import { onMounted, ref } from 'vue';
+<script lang="ts" setup>
 
-  onMounted(() => {
-    // init3D(); // 箭头函数中不需要this
-  })
 
-  function init3D() {
-    
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize( 200, 200 );
-        document.body.appendChild( renderer.domElement );
-
-        const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-        const cube = new THREE.Mesh( geometry, material );
-        scene.add( cube );
-
-        camera.position.z = 5;
-
-        function animate() {
-          requestAnimationFrame( animate );
-
-          cube.rotation.x += 0.01;
-          cube.rotation.y += 0.01;
-
-          renderer.render( scene, camera );
-        }
-
-        animate();
-  }
 
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
 }
-.d-box{
-  width: 200px;
-  height: 200px;
+a{
+  list-style: none;
+  text-decoration: none;
+  color: #000;
+}
+.app{
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.nav-item{
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+.three-demo{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #fff;
 }
 
 </style>
